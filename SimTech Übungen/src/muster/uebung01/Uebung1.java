@@ -45,7 +45,7 @@ public class Uebung1 {
 		RandVar.init(4); // initialize random number generator
 
 		int S = Smin; // initial buffer space
-		double num_successfull_runs = 0;
+		int num_successfull_runs = 0;
 		boolean goon = true; // goon means go on
 		while ((goon)) {
 			// make simulations runs with buffer size S
@@ -55,13 +55,14 @@ public class Uebung1 {
 					num_successfull_runs++;
 			}
 			// print results
-			System.out.println("S: " + S + " GOOD/TOTAL: " + (int) num_successfull_runs + "/" + number_of_runs
-					+ " PERCENT: " + 100 * num_successfull_runs / number_of_runs + "%");
+			System.out.println("S: " + S + " GOOD/TOTAL: " + num_successfull_runs + "/" + number_of_runs + " PERCENT: "
+					+ 100 * num_successfull_runs / (double) number_of_runs + "%");
 			// criterium fulfilled
-			if (num_successfull_runs / number_of_runs >= 0.8)
+			if (num_successfull_runs / (double) number_of_runs >= 0.8)
 				goon = false;
 			// close to criterium: make more runs
-			if (num_successfull_runs / number_of_runs >= 0.7 & num_successfull_runs / number_of_runs <= 0.9) {
+			if (num_successfull_runs / (double) number_of_runs >= 0.7
+					& num_successfull_runs / (double) number_of_runs <= 0.9) {
 				for (int r = 1; r < R; r++) {
 					num_successfull_runs = 0;
 					for (int run = 0; run < number_of_runs; run++) {
@@ -69,19 +70,16 @@ public class Uebung1 {
 							num_successfull_runs++;
 					}
 					// print results
-					System.out.println("S: " + S + " GOOD/TOTAL: " + (int) num_successfull_runs + "/" + number_of_runs
-							+ " PERCENT: " + 100 * num_successfull_runs / number_of_runs + "%");
+					System.out.println("S: " + S + " GOOD/TOTAL: " + num_successfull_runs + "/" + number_of_runs
+							+ " PERCENT: " + 100 * num_successfull_runs / (double) number_of_runs + "%");
 					// if any of the runs don't fulfill criterium, increase buffer space
-					if (num_successfull_runs / number_of_runs < 0.8) {
+					if (num_successfull_runs / (double) number_of_runs < 0.8) {
 						goon = true;
-
 					}
 				}
 			}
 			if (goon)
 				S++;
-			{
-			}
 		}
 	}
 }
