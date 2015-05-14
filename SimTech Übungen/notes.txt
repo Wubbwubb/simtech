@@ -1,0 +1,13 @@
+Anmerkungen zu den Übungen
+
+######################
+#####  Übung 01  #####
+######################
+
+Unser Fehler war, dass wir die Simulation in Echtzeit machen wollten.
+
+
+######################
+#####  Übung 02  #####
+######################
+

@@ -30,14 +30,12 @@ public class CustomerArrival extends SimEvent {
 	// change system state, make statistics, trigger new events
 	public void process() {
 		// always trigger next arrival event
-		EventChain.insert((SimEvent) new CustomerArrival(SimState.getNow() + SimParam.interarrivaltime));
-		//
+		EventChain.insert(new CustomerArrival(SimState.getNow() + SimParam.interarrivaltime));
 
 		// try to add the packet to the server
 		if (SystemState.addPacketToServer()) {
 			// success: packet is served, trigger service completion event for the packet
-			EventChain
-					.insert((SimEvent) new ServiceCompletion(SimState.getNow() + (long) (RandVar.getRV() * 1000 + 1)));
+			EventChain.insert(new ServiceCompletion(SimState.getNow() + (long) (RandVar.getRV() * 1000 + 1)));
 			// inform SimState (or better extra class reponsible for statistics) that a packet was accepted
 			SimState.packet_accepted();
 		}

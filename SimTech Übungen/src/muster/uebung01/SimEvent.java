@@ -26,8 +26,8 @@ public abstract class SimEvent implements Comparable<SimEvent> {
 	 */
 
 	private long value;
-	long inter_class_priority;
-	long intra_class_priority;
+	protected long inter_class_priority;
+	protected long intra_class_priority;
 
 	public SimEvent(long time) {
 		value = time;
